@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Days of Light Ministry Design System - Inspired by divine light and glory
+All colors MUST be HSL and reflect the golden radiance and spiritual elegance.
+*/
+
+@layer base {
+  :root {
+    /* Base colors - Clean and pure */
+    --background: 0 0% 100%;
+    --foreground: 220 15% 15%;
+
+    /* Card and surface colors */
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 15%;
+
+    /* Primary - Golden Divine Light (from logo) */
+    --primary: 45 65% 62%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 45 75% 72%;
+    --primary-dark: 45 55% 52%;
+
+    /* Secondary - Deep spiritual navy */
+    --secondary: 220 25% 25%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted tones - Soft grays */
+    --muted: 220 15% 96%;
+    --muted-foreground: 220 15% 45%;
+
+    /* Accent - Light golden highlight */
+    --accent: 45 55% 85%;
+    --accent-foreground: 220 25% 25%;
+
+    /* Destructive states */
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 220 15% 90%;
+    --input: 220 15% 95%;
+    --ring: 45 65% 62%;
+
+    /* Divine gradients */
+    --gradient-divine: linear-gradient(135deg, hsl(45 75% 72%), hsl(45 65% 62%));
+    --gradient-heavenly: linear-gradient(180deg, hsl(0 0% 100%), hsl(45 55% 95%));
+    --gradient-glory: linear-gradient(45deg, hsl(45 65% 62%), hsl(220 25% 25%));
+
+    /* Spiritual shadows */
+    --shadow-divine: 0 10px 30px -5px hsl(45 65% 62% / 0.3);
+    --shadow-gentle: 0 4px 20px -2px hsl(220 15% 15% / 0.1);
+    --shadow-glow: 0 0 40px hsl(45 65% 62% / 0.4);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode - Evening prayers and night vigils */
+    --background: 220 25% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 220 25% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 220 25% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    /* Primary golden light shines brighter in darkness */
+    --primary: 45 75% 72%;
+    --primary-foreground: 220 25% 8%;
+    --primary-light: 45 80% 78%;
+    --primary-dark: 45 65% 62%;
+
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 220 15% 15%;
+    --muted-foreground: 220 15% 65%;
+
+    --accent: 220 15% 18%;
+    --accent-foreground: 45 75% 72%;
+
+    --destructive: 0 85% 65%;
+    --destructive-foreground: 220 25% 8%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 18%;
+    --ring: 45 75% 72%;
+
+    /* Dark mode gradients - Light piercing darkness */
+    --gradient-divine: linear-gradient(135deg, hsl(45 80% 78%), hsl(45 70% 65%));
+    --gradient-heavenly: linear-gradient(180deg, hsl(220 25% 12%), hsl(220 20% 15%));
+    --gradient-glory: linear-gradient(45deg, hsl(45 75% 72%), hsl(220 25% 15%));
+
+    --shadow-divine: 0 10px 30px -5px hsl(45 75% 72% / 0.4);
+    --shadow-gentle: 0 4px 20px -2px hsl(0 0% 0% / 0.3);
+    --shadow-glow: 0 0 50px hsl(45 75% 72% / 0.5);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
