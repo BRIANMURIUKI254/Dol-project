@@ -1,73 +1,140 @@
-# Welcome to your Lovable project
+# Days of Light (DOL) Church Platform
 
-## Project info
+A comprehensive platform for Days of Light (DOL) Church, featuring a modern frontend and a robust backend API.
 
-**URL**: https://lovable.dev/projects/858254bb-9293-48a1-b383-f5c5d8a3e13b
+## Project Structure
 
-## How can I edit this code?
+- `backend/` - Django REST Framework backend API
+- `frontend/` - React-based frontend application
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+### Backend (Django REST Framework)
+- JWT Authentication
+- Role-based access control
+- Houses management
+- Events management
+- Sermons and playlists
+- File uploads with Cloudinary
+- Comprehensive API documentation
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/858254bb-9293-48a1-b383-f5c5d8a3e13b) and start prompting.
+### Frontend (React)
+- Modern, responsive UI
+- User authentication flows
+- Interactive dashboard
+- Event management
+- Media library
+- Admin panel
 
-Changes made via Lovable will be committed automatically to this repo.
+## Getting Started
 
-**Use your preferred IDE**
+### Prerequisites
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- Python 3.9+
+- Node.js 16+
+- PostgreSQL
+- Cloudinary account (for file uploads)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Backend Setup
 
-Follow these steps:
+1. Navigate to the backend directory:
+   ```bash
+   cd backend
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: .\venv\Scripts\activate
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+4. Create a `.env` file based on `.env.example` and update with your configuration.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+5. Run migrations:
+   ```bash
+   python manage.py migrate
+   ```
+
+6. Create a superuser:
+   ```bash
+   python manage.py createsuperuser_custom --email admin@dol.org --username admin
+   ```
+
+7. (Optional) Load sample data:
+   ```bash
+   python manage.py seed_data
+   ```
+
+8. Start the development server:
+   ```bash
+   python manage.py runserver
+   ```
+
+### Frontend Setup
+
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Create a `.env` file based on `.env.example` and update with your configuration.
+
+4. Start the development server:
+   ```bash
+   npm start
+   ```
+
+## Development
+
+### Backend
+- Run tests: `python manage.py test`
+- Generate migrations: `python manage.py makemigrations`
+- Apply migrations: `python manage.py migrate`
+- Create superuser: `python manage.py createsuperuser_custom`
+
+### Frontend
+- Start dev server: `npm start`
+- Run tests: `npm test`
+- Build for production: `npm run build`
+
+## Deployment
+
+### Backend
+For production deployment, it's recommended to use:
+- Gunicorn or uWSGI as the application server
+- Nginx as the reverse proxy
+- PostgreSQL as the database
+- Environment variables for configuration
+
+Example Gunicorn command:
+```bash
+gunicorn --bind 0.0.0.0:8000 core.wsgi:application
 ```
 
-**Edit a file directly in GitHub**
+### Frontend
+Build the frontend for production:
+```bash
+npm run build
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Then serve the static files using a web server like Nginx or a CDN.
 
-**Use GitHub Codespaces**
+## API Documentation
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Once the backend server is running, you can access the API documentation at:
+- Swagger UI: http://localhost:8000/api/docs/swagger/
+- ReDoc: http://localhost:8000/api/docs/redoc/
 
-## What technologies are used for this project?
+## License
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/858254bb-9293-48a1-b383-f5c5d8a3e13b) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+This project is licensed under the MIT License - see the [LICENSE](backend/LICENSE) file for details.

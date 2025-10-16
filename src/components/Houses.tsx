@@ -1,45 +1,64 @@
 import { Card, CardContent } from '@/components/ui/card';
-import { MapPin, Clock, Calendar } from 'lucide-react';
+import { MapPin, Clock, Calendar, Loader2 } from 'lucide-react';
+import { useHouses } from '@/hooks/useApi';
 
 const Houses = () => {
-  const houses = [
+  const { data: housesData, isLoading, error } = useHouses();
+
+  // Fallback static data in case API fails
+  const fallbackHouses = [
     {
+      id: 1,
       name: 'House of Thika',
       day: 'Monday',
       time: '5:00pm - 8:00pm',
       location: 'CCI Arise and Shine, next to Eton Hotel',
+      is_active: true,
     },
     {
+      id: 2,
       name: 'House of Rongai',
       day: 'Monday',
       time: '5:30pm - 8:00pm',
       location: 'Maasai Lodge Opposite Think twice',
+      is_active: true,
     },
     {
+      id: 3,
       name: 'House of Murang\'a',
       day: 'Tuesday',
       time: '6:30pm - 8:30pm',
       location: 'Cool Palace, B7',
+      is_active: true,
     },
     {
+      id: 4,
       name: 'House of KU',
       day: 'Monday',
       time: '5:00pm - 8:00pm',
       location: 'Kahawa Sukari near Suburbs',
+      is_active: true,
     },
     {
+      id: 5,
       name: 'House of Kitengela',
       day: 'Wednesday',
       time: '6:00pm - 8:00pm',
       location: 'Balozi road (immediately after Imani apartments) House 001',
+      is_active: true,
     },
     {
+      id: 6,
       name: 'House of AIU',
       day: 'Coming Soon',
       time: 'TBA',
       location: 'Location to be announced',
+      is_active: false,
     },
   ];
+
+  // Use API data if available, otherwise fallback to static data
+  const houses = housesData?.results || fallbackHouses;
 
   return (
     <section id="houses" className="py-16 md:py-24 bg-accent/10">
@@ -53,6 +72,23 @@ const Houses = () => {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Join us for fellowship and worship at one of our house meetings across different locations.
           </p>
+          
+          {/* Loading indicator */}
+          {isLoading && (
+            <div className="flex items-center justify-center mt-8">
+              <Loader2 className="h-6 w-6 animate-spin text-primary" />
+              <span className="ml-2 text-muted-foreground">Loading houses...</span>
+            </div>
+          )}
+          
+          {/* Error message */}
+          {error && (
+            <div className="mt-8 p-4 bg-destructive/10 border border-destructive/20 rounded-lg">
+              <p className="text-destructive text-sm">
+                Unable to load houses from server. Showing cached data.
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Houses grid */}
