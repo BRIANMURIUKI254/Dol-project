@@ -3,7 +3,7 @@ import { ArrowRight, Star } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative py-8 md:py-12 flex items-center justify-center overflow-hidden">
       {/* Background with divine gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-accent/30 to-primary/10" />
       

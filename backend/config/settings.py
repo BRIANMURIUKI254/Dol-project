@@ -84,6 +84,7 @@ INSTALLED_APPS = [
     'apps.events',
     'apps.giving',
     'apps.admin_dashboard',
+    'apps.file_storage',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,274 @@
+{
+  "info": {
+    "name": "File Storage API",
+    "description": "Collection for testing the File Storage API endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000",
+      "type": "string"
+    },
+    {
+      "key": "jwt_token",
+      "value": "your_jwt_token_here",
+      "type": "string"
+    },
+    {
+      "key": "file_reference",
+      "value": "550e8400-e29b-41d4-a716-446655440000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "File Upload",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{jwt_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": []
+            },
+            {
+              "key": "description",
+              "value": "Test file upload",
+              "type": "text"
+            },
+            {
+              "key": "is_public",
+              "value": "true",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{base_url}}/api/files/upload/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "files", "upload", ""]
+        },
+        "description": "Upload a new file to the system. Images and videos go to Cloudinary, documents go to local storage."
+      },
+      "response": []
+    },
+    {
+      "name": "Get File Information",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{jwt_token}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/files/{{file_reference}}/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "files", "{{file_reference}}", ""]
+        },
+        "description": "Retrieve file metadata by file reference."
+      },
+      "response": []
+    },
+    {
+      "name": "Serve File",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{jwt_token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/files/{{file_reference}}/serve/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "files", "{{file_reference}}", "serve", ""]
+        },
+        "description": "Serve the actual file content. For Cloudinary files, this redirects to the Cloudinary URL."
+      },
+      "response": []
+    },
+    {
+      "name": "List User Files",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{jwt_token}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/files/files/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "files", "files", ""]
+        },
+        "description": "List all files uploaded by the authenticated user."
+      },
+      "response": []
+    },
+    {
+      "name": "List User Files (Cloudinary Only)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{jwt_token}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/files/files/?storage_location=cloudinary",
+          "host": ["{{base_url}}"],
+          "path": ["api", "files", "files", ""],
+          "query": [
+            {
+              "key": "storage_location",
+              "value": "cloudinary"
+            }
+          ]
+        },
+        "description": "List user files filtered by storage location (Cloudinary only)."
+      },
+      "response": []
+    },
+    {
+      "name": "List User Files (Images Only)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{jwt_token}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/files/files/?mime_type=image/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "files", "files", ""],
+          "query": [
+            {
+              "key": "mime_type",
+              "value": "image/"
+            }
+          ]
+        },
+        "description": "List user files filtered by MIME type (images only)."
+      },
+      "response": []
+    },
+    {
+      "name": "List User Files (Public Only)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{jwt_token}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/files/files/?is_public=true",
+          "host": ["{{base_url}}"],
+          "path": ["api", "files", "files", ""],
+          "query": [
+            {
+              "key": "is_public",
+              "value": "true"
+            }
+          ]
+        },
+        "description": "List user files filtered by public status (public files only)."
+      },
+      "response": []
+    },
+    {
+      "name": "Delete File",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{jwt_token}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/files/{{file_reference}}/delete/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "files", "{{file_reference}}", "delete", ""]
+        },
+        "description": "Delete a file and its database record. Only the file owner or admin can delete files."
+      },
+      "response": []
+    },
+    {
+      "name": "File Statistics",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/files/stats/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "files", "stats", ""]
+        },
+        "description": "Get file storage statistics. No authentication required."
+      },
+      "response": []
+    }
+  ]
+}

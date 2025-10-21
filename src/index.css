@@ -132,7 +132,11 @@ All colors MUST be HSL and reflect the golden radiance and spiritual elegance.
     @apply border-border;
   }
 
-  body {
+  html, body {
     @apply bg-background text-foreground;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
   }
 }

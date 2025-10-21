@@ -7,25 +7,22 @@ import Contact from '@/components/Contact';
 
 const Index: React.FC = () => {
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="bg-background flex flex-col overflow-x-hidden">
       <Header />
-      <main className="flex-1">
+      <main className="pt-8">
         <section id="hero">
           <Hero />
         </section>
-        <section id="about" className="py-16 bg-gray-50">
+        <section id="about" className="py-0 bg-gray-50">
           <About />
         </section>
-        <section id="houses" className="py-16 bg-white">
+        <section id="houses" className="bg-white">
           <Houses />
         </section>
-        <section id="contact" className="py-16 bg-gray-50">
+        <section id="contact" className="bg-gray-50">
           <Contact />
         </section>
       </main>
-      <footer className="bg-gray-900 text-gray-300 text-center py-6">
-        <p>© {new Date().getFullYear()} D.O.L Ministries. All rights reserved.</p>
-      </footer>
     </div>
   );
 };

@@ -43,10 +43,10 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-gradient-to-b from-background to-accent/20">
+    <section id="contact" className="pt-8 md:pt-12 pb-4 md:pb-6 bg-gradient-to-b from-background to-accent/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Connect With Us
           </h2>

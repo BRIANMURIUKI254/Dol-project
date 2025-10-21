@@ -61,14 +61,14 @@ const Houses = () => {
   const houses = housesData?.results || fallbackHouses;
 
   return (
-    <section id="houses" className="py-16 md:py-24 bg-accent/10">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="houses" className="pt-0 pb-0 bg-accent/10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-0">
         {/* Section header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
             Our Houses
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-light mx-auto rounded-full mb-4" />
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-light mx-auto rounded-full mb-3" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Join us for fellowship and worship at one of our house meetings across different locations.
           </p>
@@ -92,21 +92,21 @@ const Houses = () => {
         </div>
 
         {/* Houses grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {houses.map((house, index) => (
             <Card 
               key={index} 
               className="group hover:shadow-divine transition-all duration-300 hover:-translate-y-1"
             >
-              <CardContent className="p-6">
-                <div className="mb-6">
+              <CardContent className="p-4">
+                <div className="mb-4">
                   <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                     {house.name}
                   </h3>
                   <div className="w-12 h-1 bg-primary rounded-full" />
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {/* Day */}
                   <div className="flex items-center text-muted-foreground">
                     <Calendar className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
@@ -147,12 +147,12 @@ const Houses = () => {
         </div>
 
         {/* Call to action */}
-        <div className="text-center mt-16">
-          <div className="bg-card border border-primary/20 rounded-lg p-8 max-w-2xl mx-auto shadow-gentle">
-            <h3 className="text-xl font-bold text-foreground mb-4">
+        <div className="text-center mt-8">
+          <div className="bg-card border border-primary/20 rounded-lg p-6 max-w-2xl mx-auto shadow-gentle">
+            <h3 className="text-xl font-bold text-foreground mb-3">
               Can't find a house near you?
             </h3>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-muted-foreground mb-4">
               We're always looking to start new houses. Get in touch with us to explore starting a fellowship in your area.
             </p>
             <a 

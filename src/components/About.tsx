@@ -3,10 +3,10 @@ import { Target, Eye, BookOpen } from 'lucide-react';
 
 const About = () => {
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-background to-accent/20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="pt-0 pb-0 bg-gradient-to-b from-background to-accent/20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-0">
         {/* Section header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             What is Days of Light?
           </h2>
@@ -14,14 +14,14 @@ const About = () => {
         </div>
 
         {/* Main description */}
-        <div className="max-w-4xl mx-auto text-center mb-16">
+        <div className="max-w-4xl mx-auto text-center mb-8">
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
             Days of Light is a movement that seeks to see the word of God prevail and be glorified amongst men through the teaching and demonstration of the wisdom and power of God which is Jesus Christ our Lord. We stand to be counted amongst many in the massive move of the spirit that God is doing in this tail-end of the end of the days, where the earth shall be filled with the knowledge of the glory of the Lord as the waters cover the sea.
           </p>
         </div>
 
         {/* Vision, Mission, History cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Vision */}
           <Card className="group hover:shadow-divine transition-all duration-300">
             <CardContent className="p-8 text-center">
@@ -63,7 +63,7 @@ const About = () => {
         </div>
 
         {/* Ministry verses */}
-        <div className="bg-card border border-border rounded-lg p-8 md:p-12 shadow-gentle">
+        <div className="bg-card border border-border rounded-lg p-8 md:p-12 shadow-gentle mb-0">
           <h3 className="text-2xl font-bold text-center text-foreground mb-8">Ministry Verses</h3>
           <div className="max-w-3xl mx-auto space-y-4">
             <div className="flex">
